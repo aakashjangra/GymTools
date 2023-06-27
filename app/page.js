@@ -1,95 +1,60 @@
-import Image from 'next/image'
+"use client";
+import { useEffect, useState } from 'react';
 import styles from './page.module.css'
+import { db } from './config/firebase';
+// getDocs to get multiple docs together, doc to get 1(single) entry
+import { getDocs, collection } from "firebase/firestore";
 
 export default function Home() {
+    const [products, setProducts] = useState([]);
+    const productsCollectionRef = collection(db, "products"); //the second parameter should match collection name in our db
+    const getProducts = async () => {
+        //READ THE  DATA
+        //STORE IN PRODUCTS ARRAY
+        try {
+            const data = await getDocs(productsCollectionRef);
+            const filteredData = data.docs.map((doc) => (
+                {
+                    ...doc.data()
+                }
+                ))
+            setProducts(filteredData);
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    useEffect(() => {
+        getProducts();
+        
+    }, [])    
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      <main>
+          <section className={styles.banner}>
+              <h3 className={styles.heading}>
+                  The perfect blend of form and function.
+              </h3>
+              <p className={styles.description}>
+                  For those who demand the best in both form and function
+              </p>
+              <button className={styles.shopNow}>Shop now</button>
+          </section>
+          <section className={styles.productShowcase}>
+              <h3 className={styles.heading}>
+                  Crafted with care. Built for results.
+              </h3>
+              <p className={styles.description}>
+                  Equipment that's built to last, and designed to help you
+                  reach your goals
+              </p>
+              <section className={styles.products}>
+                {
+                    products?.length > 0 ?
+                    <section> Products Here </section> 
+                    : <p>No products right now.</p>
+                }
+              </section>
+          </section>
+      </main>
+  );
 }
