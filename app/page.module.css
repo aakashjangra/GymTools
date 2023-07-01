@@ -36,3 +36,32 @@
 .description{
     opacity: 0.75;
 }
+
+.productShowcase{
+    padding-bottom: 5rem;
+}
+
+.products{
+    display: grid;
+    margin: 2rem var(--padding-content);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 7px;
+}
+
+/* .products .card.product{
+    border: 1px solid blue;
+} */
+
+.products .productPreviewImg{
+    height: 80%;
+    width: 100%;
+}
+
+.products .pricing{
+    display: flex;
+    gap: 10%;
+}
+
+.products .pricing .strikeThrough{
+    text-decoration: line-through;
+}
