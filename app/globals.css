@@ -66,6 +66,15 @@ body{
   align-self: flex-end;
 }
 
+.header .header-left a.link{
+  color: initial;
+  text-decoration: none;
+}
+
+.header .header-left a.link.active{
+  text-decoration: underline;
+}
+
 .header nav .header-right{
   display: flex;
   align-items: center;
@@ -73,7 +82,7 @@ body{
 }
 
 .title-gymtools{
-  font-size: 20px;
+  font-size: x-large;
   margin-right: 40px;
 }
 
@@ -103,6 +112,6 @@ body{
 
 .lower-footer{
   font-size: 11px;
-  border-top: var(--color-border-grey) 1px solid;
+  border-top: 1px solid var(--color-border-grey);
   padding: 2em var(--padding-content);
 }

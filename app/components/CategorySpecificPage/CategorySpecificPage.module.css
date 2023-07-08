@@ -1,0 +1,90 @@
+.pageHeading {
+    font-size: xx-large;
+    font-weight: 500;
+    padding: 1rem var(--padding-content);
+}
+
+.filterSort {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem var(--padding-content);
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.filterOptionContainer {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 0.3rem;
+}
+
+.filterOptionContainer:hover .filterOption {
+    text-decoration: underline;
+}
+
+.filterOptionContainer:hover .filterOptionPopup {
+    display: flex;
+}
+
+.filterOptionPopup {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    top: 1rem;
+    z-index: 2;
+    background-color: var(--color-secondary);
+    padding: 1rem 0;
+}
+
+.highestPriceAndReset {
+    display: flex;
+    gap: 3rem;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border-grey);
+}
+
+.highestPriceContainer {
+    width: max-content;
+    letter-spacing: 0.05rem;
+}
+
+.resetPrice {
+    border-bottom: 1px solid rgb(184, 178, 178);
+}
+
+.resetPrice:hover {
+    cursor: pointer;
+    border-bottom: 1px solid black;
+}
+
+.filterOptionPopup .inputs {
+    display: flex;
+    gap: 4rem;
+    font-size: medium;
+    padding: 1rem;
+}
+
+.filterOptionPopup .inputs .input {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 0.5rem;
+}
+
+.filterOptionPopup .inputs .input input {
+    height: 3rem;
+    width: 7rem;
+    font-size: medium;
+    padding: 0.5rem;
+}
+
+.sort {
+    display: flex;
+    gap: 1rem;
+}

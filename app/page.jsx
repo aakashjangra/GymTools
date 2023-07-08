@@ -4,6 +4,8 @@ import styles from './page.module.css'
 import { db } from './config/firebase';
 // getDocs to get multiple docs together, doc to get 1(single) entry
 import { addDoc, getDocs, collection } from "firebase/firestore";
+import Product from './components/Products/Products';
+import Products from './components/Products/Products';
 
 export default function Home() {
     const [products, setProducts] = useState([]);
@@ -20,11 +22,15 @@ export default function Home() {
                 }
                 ))
             setProducts(filteredData);
-            console.log(filteredData);
         } catch (err) {
             console.error(err);
         }
     }
+    
+    useEffect(() => {
+        getProducts();
+    }, [])    
+
     // const addProduct = async () => {
     //     try {
     //         const docRef = await addDoc(collection(db, "products"), {
@@ -42,10 +48,6 @@ export default function Home() {
     //         console.error("Error adding document: ", e);
     //     }
     // }
-
-    useEffect(() => {
-        getProducts();
-    }, [])    
   return (
       <main>
           <section className={styles.banner}>
@@ -66,53 +68,14 @@ export default function Home() {
                   your goals
               </p>
               {products?.length > 0 ? (
-                  <section className={styles.products}>
-                      {(function renderEightProducts() {
-                          let renderedProducts = [];
+                      (function renderEightProducts() {
+                          let renderProducts = [];
                           for (let i = 0; i < 8; i++) {
                               const product = products[i];
-                              renderedProducts.push(
-                                  <div
-                                      className={`${styles.card} ${styles.product}`}
-                                      key={product.id}
-                                  >
-                                      <div className={styles.productImages}>
-                                          {product.imageUrls?.length > 0 ? (
-                                              <>
-                                                  <img
-                                                      className={`${styles.productPreviewImg} ${styles.imageNormal}`}
-                                                      src={product.imageUrls[0]}
-                                                      alt="Product Preview Image"
-                                                  />
-                                                  <img
-                                                      className={`${styles.productPreviewImg} ${styles.imageHover}`}
-                                                      src={product.imageUrls?.length > 1? product.imageUrls[1]: product.imageUrls[0]}
-                                                      alt="Product Preview Image"
-                                                  />
-                                              </>
-                                          ) : (
-                                              <></>
-                                          )}
-                                      </div>
-                                      <h4 className={styles.productName}>
-                                          {product.title}
-                                      </h4>
-                                      <div className={styles.pricing}>
-                                          <p
-                                              className={`${styles.price} ${styles.strikeThrough}`}
-                                          >
-                                              ₹ {product.price} INR
-                                          </p>
-                                          <p className={styles.salePrice}>
-                                              ₹ {product.salePrice} INR
-                                          </p>
-                                      </div>
-                                  </div>
-                              );
+                              renderProducts.push(product);
                           }
-                          return renderedProducts;
-                      })()}
-                  </section>
+                          return <Products products={renderProducts} />;
+                      })()
               ) : (
                   <p>No products right now.</p>
               )}

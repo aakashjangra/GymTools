@@ -1,5 +1,6 @@
 import './globals.css'
 import { Pathway_Extreme } from 'next/font/google'
+import Link from 'next/link'
 
 const pathwayExtremeFont = Pathway_Extreme({ subsets: ['latin'] })
 
@@ -18,37 +19,37 @@ export default function RootLayout({ children }) {
               <header className="header">
                   <nav>
                       <section className="header-left">
-                          <a className="title-gymtools">
-                              <h2>GymTools</h2>
-                          </a>
-                          <a className="link-with-svg">
+                        <Link className="title-gymtools link" href="/">
+                              <h1>GymTools</h1>
+                          </Link>
+                          <Link className="link-with-svg link" href='/gym-equipments'>
                               Gym Equipments
                               <img
                                   className="svg"
                                   src="/chevron-down.svg"
                                   alt="A SVG of chevron down"
                               />
-                          </a>
-                          <a className="link-with-svg">
+                          </Link>
+                          <Link className="link-with-svg link" href='/calisthenics-equipments'>
                               Calisthenics Equipments
                               <img
                                   className="svg"
                                   src="/chevron-down.svg"
                                   alt="A SVG of chevron down"
                               />
-                          </a>
-                          <a>Lookbook</a>
+                          </Link>
+                          <Link className='link' href='/lookbook'>Lookbook</Link>
                       </section>
                       <section className="header-right">
-                          <a className="search">
+                          <div className="search">
                               <img src="/search.svg" alt="A SVG of search" />
-                          </a>
-                          <a className="user">
+                          </div>
+                          <div className="user">
                               <img src="/user.svg" alt="A SVG of user" />
-                          </a>
-                          <a className="cart">
+                          </div>
+                          <div className="cart">
                               <img src="/cart.svg" alt="A SVG of cart" />
-                          </a>
+                          </div>
                       </section>
                   </nav>
               </header>
