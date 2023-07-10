@@ -1,0 +1,36 @@
+section.summerInspiration {
+    --current-page-padding-size: 2rem;
+
+    padding: var(--current-page-padding-size) var(--padding-content);
+    color: var(--color-secondary);
+    background-color: var(--color-primary);
+}
+
+.summerInspiration .heading {
+    margin-bottom: var(--current-page-padding-size);
+}
+
+.showcaseImages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 2rem;
+}
+
+.image {
+    height: 100%;
+    width: 100%;
+}
+
+.productsContainer {
+    --current-page-padding-size: 2rem;
+
+    padding: var(--current-page-padding-size) 0;
+    color: var(--color-secondary);
+    background-color: var(--color-primary);
+}
+
+.productsContainer .heading{
+    padding: 0 var(--padding-content);
+}
