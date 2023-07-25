@@ -17,6 +17,15 @@
     border: 1px solid var(--color-secondary);
 }
 
+.shopNow > a{
+    color: var(--color-secondary);
+    text-decoration: none;
+}
+
+.shopNow:hover >a{
+    color: var(--color-primary);
+}
+
 .banner button.shopNow:hover{
     cursor: pointer;
     color: var(--color-primary);

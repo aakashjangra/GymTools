@@ -6,6 +6,7 @@ import { db } from './config/firebase';
 import { addDoc, getDocs, collection } from "firebase/firestore";
 import Product from './components/Products/Products';
 import Products from './components/Products/Products';
+import Link from 'next/link';
 
 export default function Home() {
     const [products, setProducts] = useState([]);
@@ -57,7 +58,11 @@ export default function Home() {
               <p className={styles.description}>
                   For those who demand the best in both form and function
               </p>
-              <button className={styles.shopNow}>Shop now</button>
+              <button className={styles.shopNow}>
+                <Link href="/lookbook">
+                    Shop now
+                </Link>
+                </button>
           </section>
           <section className={styles.productShowcase}>
               <h3 className={styles.heading}>

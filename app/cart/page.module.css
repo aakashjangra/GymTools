@@ -1,0 +1,16 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--padding-content);
+    padding-top: calc(var(--padding-content)/2);
+}
+
+.header .heading{
+    font-size: xx-large;
+    font-weight: 500;
+}
+
+.header .linkToProducts{
+    color: initial;
+}

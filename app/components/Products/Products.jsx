@@ -1,13 +1,19 @@
 import React, { useEffect } from 'react';
 import styles from './Products.module.css';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 function Products({ products }) {
+    const router = useRouter();
   return (
     <section className={styles.products}>
     {products.map((product) => 
                     <div
                                       className={`${styles.card} ${styles.product}`}
                                       key={product.id}
+                                      onClick={() => {
+                                        router.push( `/product?pid=${product.id}`)
+                                      }}
                                   >
                                       <div className={styles.productImages}>
                                           {product.imageUrls?.length > 0 ? (
@@ -21,11 +27,11 @@ function Products({ products }) {
                                                       className={`${styles.productPreviewImg} ${styles.imageHover}`}
                                                       src={product.imageUrls?.length > 1? product.imageUrls[1]: product.imageUrls[0]}
                                                       alt="Product Preview Image"
-                                                  />
+                                                      />
                                               </>
                                           ) : (
                                               <></>
-                                          )}
+                                              )}
                                       </div>
                                       <h4 className={styles.productName}>
                                           {product.title}
@@ -33,7 +39,7 @@ function Products({ products }) {
                                       <div className={styles.pricing}>
                                           <p
                                               className={`${styles.price} ${styles.strikeThrough}`}
-                                          >
+                                              >
                                               ₹ {product.price} INR
                                           </p>
                                           <p className={styles.salePrice}>

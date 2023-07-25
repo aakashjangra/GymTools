@@ -7,7 +7,9 @@
 
 .product{
     height: 50vh;
+    cursor: pointer;
 }
+
 .product .productImages {
     display: inline-block;
     position: relative;

@@ -1,0 +1,150 @@
+.product{
+    --normal-spacing: 1rem;
+    
+    padding: 2rem var(--padding-content);
+    /* border: 2px solid pink; */
+    /* color: var(--color-secondary);
+    background-color: var(--color-primary); */
+}
+
+.upperSection{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: calc(var(--normal-spacing)*2) 0;
+}
+
+.images{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-column-gap: 0.4rem;
+    grid-row-gap: 0.4rem;
+    /* border: 2px solid green; */
+}
+
+.image{
+    height: 100%;
+    width: 100%;
+}
+
+.image:global(.image1) {
+    grid-area: 1 / 1 / 5 / 5;
+}
+
+.image:global(.image2) {
+    grid-area: 5 / 1 / 7 / 3;
+}
+
+.image:global(.image3) {
+    grid-area: 7 / 1 / 9 / 3;
+}
+
+.image:global(.image4) {
+    grid-area: 5 / 3 / 7 / 5;
+}
+
+.title{
+    font-size: xx-large;
+    font-weight: 500;
+    margin-bottom: var(--normal-spacing);
+}
+
+.price{
+    text-decoration: line-through;
+    opacity: var(--opacity);
+}
+
+.price, .salePrice{
+    font-weight: normal;
+}
+
+.quantityInputContainer{
+    --size: 2.5rem;
+    --size-inner: 2rem;
+    --container-width: calc(var(--size)*3.5);
+
+    position: relative;
+    width: var(--container-width);
+    margin: var(--normal-spacing) 0;
+}
+
+.quantityLabel{
+    opacity: var(--opacity);
+}
+
+.quantityInput{
+    height: var(--size);
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.quantityDecrement, .quantityIncrement{
+    height: var(--size-inner);
+    width: var(--size-inner);
+    text-align: center;
+    font-size: large;
+    /* color: var(--color-primary); */
+    background-color: var(--color-secondary);
+    border: none;
+}
+
+.quantityDecrement{
+    position: absolute;
+    left: 0.3rem;
+    top: 1.3rem;
+}
+
+.quantityIncrement{
+    position: absolute;
+    right: 0.3rem;
+    top: 1.4rem;
+}
+
+.addToCart, .buyItNow{
+    height: 3rem;
+    width: 100%;
+    font-size: medium;
+    cursor: pointer;
+}
+
+.addToCart{
+    margin-top: calc(var(--normal-spacing)*3.5);
+    background-color: var(--color-secondary);
+    margin-bottom: calc(var(--normal-spacing)/2);
+}
+
+.buyItNow{
+    color: var(--color-secondary);
+    background-color: var(--color-primary);
+    margin-bottom: var(--normal-spacing);
+}
+
+.description{
+    font-size: medium;
+    line-height: 2rem;
+    opacity: var(--opacity);
+}
+
+.features{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.feature{
+    display: flex;
+    flex-direction: column;
+    gap: var(--normal-spacing);
+}
+
+.feature .heading{
+    font-size: large;
+    font-weight: 500;
+}
+
+.lowerSection{
+    margin: 3rem 0;
+}

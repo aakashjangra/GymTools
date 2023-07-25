@@ -2,6 +2,7 @@ html {
   --color-primary: #121212;
   --color-secondary: rgb(255, 255, 255);
   --color-border-grey: rgb(230, 230, 230);
+  --opacity: 0.7;
   --padding-content: 10vw;
 }
 
@@ -101,12 +102,17 @@ body{
   margin: 2em 0;
 }
 
+.footer .list a {
+  color: initial;
+  text-decoration: none;
+}
+
 .footer .list{
   list-style-type: none;
 }
 
 .footer .list li, .footer div p{
-  opacity: 0.7;
+  opacity: var(--opacity);
   margin: 1em 0;
 }
 
