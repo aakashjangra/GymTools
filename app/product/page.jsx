@@ -7,6 +7,7 @@ import { db } from '../config/firebase';
 import styles from './page.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../store/cartSlice';
+import QuantitySelector from '../components/QuantitySelector/QuantitySelector';
 
 
 function Product() {
@@ -70,22 +71,7 @@ function Product() {
           <h2 className={styles.title} >{product.title}</h2>
             <h3 className={styles.salePrice}>₹ {product.salePrice} INR</h3>
             <h4 className={styles.price}>₹ {product.price} INR</h4>
-          <div className={styles.quantityInputContainer}>
-              <label className={styles.quantityLabel} htmlFor="quantity">
-                Quantity
-                <br />
-                <input className={styles.quantityInput} onChange={(event) => {
-                    if(event.target.value && (event.target.value >= 1 && event.target.value < 99999))
-                      setQuantity(parseInt(event.target.value))
-                    else 
-                      setQuantity(1);
-                  }} value={quantity} id='quantity' type='number'></input>
-              </label>
-              <button className={styles.quantityIncrement} onClick={() => {setQuantity(quantity+1)}}>+</button>
-              <button className={styles.quantityDecrement} disabled={quantity == 1}  onClick={() => {
-                if(quantity == 1) return;
-                setQuantity(quantity-1)}}>-</button>
-          </div>
+          <QuantitySelector quantity={quantity} setQuantity={setQuantity}/>
                 <button className={styles.addToCart} onClick={()=> {
                   
                   console.log('addtocart func- ', addToCart)

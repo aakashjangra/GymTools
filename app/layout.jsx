@@ -3,8 +3,9 @@
 import './globals.css'
 import { Pathway_Extreme } from 'next/font/google'
 import Link from 'next/link'
-import store from './store/store'
+import { persistor, store } from './store/store'
 import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
 
 const pathwayExtremeFont = Pathway_Extreme({ subsets: ['latin'] })
 
@@ -21,6 +22,7 @@ function RootLayout({ children }) {
                 Free shipping available on all orders!
             </div>
               <Provider store={store}>
+                <PersistGate loading={null} persistor={persistor}>
                     <header className="header">
                         <nav>
                             <section className="header-left">
@@ -61,6 +63,7 @@ function RootLayout({ children }) {
                         </nav>
                     </header>
                     {children}
+                </PersistGate>
               </Provider>
             <footer className="footer">
                 <section className="upper-footer">

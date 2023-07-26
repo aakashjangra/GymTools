@@ -15,19 +15,33 @@ export const cartSlice = createSlice({
         addToCart: (state, action) => {
             const { id, ...data } = action.payload.product;
             const count = action.payload.quantity;
-    
+
             const existingItem = state.cartItems.find((item) => item.id === id);
             if (existingItem) {
-                // If the item already exists in the cart, increase its quantity
+                // If the item already exists in the cart, increase its quantity by count
                 existingItem.quantity += count;
             } else {
-                // If the item doesn't exist in the cart, add it with quantity 1
+                // If the item doesn't exist in the cart, add it with quantity (count)
                 state.cartItems.push({
                     id,
                     data,
                     quantity: count,
                 });
             }
+        },
+        removeFromCart: (state, action) => {
+            const { id } = action.payload;
+            state.cartItems = state.cartItems.filter((item) => item.id !== id);
+        },
+        updateCartItemQuantity: (state, action) => {
+            const { id, quantity } = action.payload;
+            const itemToUpdate = state.cartItems.find((item) => item.id === id);
+            if (itemToUpdate) {
+                itemToUpdate.quantity = quantity; 
+            }
+        },
+        clearCart: (state) => {
+            state.cartItems = [];
         },
     },
 });

@@ -1,0 +1,45 @@
+.quantityInputContainer {
+    --size: 2.5rem;
+    --size-inner: 2rem;
+    --container-width: calc(var(--size)*3.5);
+
+    position: relative;
+    width: var(--container-width);
+    margin: var(--normal-spacing) 0;
+}
+
+.quantityLabel {
+    opacity: var(--opacity);
+}
+
+.quantityInput {
+    height: var(--size);
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.quantityDecrement,
+.quantityIncrement {
+    height: var(--size-inner);
+    width: var(--size-inner);
+    text-align: center;
+    font-size: large;
+    /* color: var(--color-primary); */
+    background-color: var(--color-secondary);
+    border: none;
+}
+
+.quantityDecrement {
+    position: absolute;
+    left: 0.3rem;
+    top: 1.3rem;
+}
+
+.quantityIncrement {
+    position: absolute;
+    right: 0.3rem;
+    top: 1.4rem;
+}

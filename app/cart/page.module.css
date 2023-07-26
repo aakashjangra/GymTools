@@ -1,16 +1,99 @@
-.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.cart{
     padding: 0 var(--padding-content);
     padding-top: calc(var(--padding-content)/2);
 }
 
-.header .heading{
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heading{
     font-size: xx-large;
     font-weight: 500;
 }
 
-.header .linkToProducts{
+.linkToProducts{
     color: initial;
+}
+
+.products{
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--color-border-grey);
+    gap: 2.5rem;
+}
+
+.tHeadings, .product{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+}
+
+.tHeadings{
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border-grey);
+}
+
+.total{
+    text-align: end;
+}
+
+.thead{
+    font-size: smaller;
+    opacity: 0.7;
+}
+
+.product .info{
+    display: flex;
+    gap: 1rem;
+}
+
+.info .titleAndPrice{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.info .title{
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.info .price{
+    font-size: small;
+}
+
+.product .productImage{
+    height: 6rem;
+    width: 6rem;
+    border: 1px solid var(--color-border-grey);
+}
+
+.billing{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+.billing .subtotal{
+    display: flex;
+    gap: 1.5rem;
+    font-size: medium;
+}
+
+.billing .note{
+    font-size: small;
+    opacity: 0.7;
+    padding: 1rem 0;
+}
+
+button.checkout{
+    height: 3rem;
+    width: 20rem;
+    font-size: medium;
+    color: var(--color-secondary);
+    background-color: var(--color-primary);
 }
