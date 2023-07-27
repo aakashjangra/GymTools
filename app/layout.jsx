@@ -4,8 +4,9 @@ import './globals.css'
 import { Pathway_Extreme } from 'next/font/google'
 import Link from 'next/link'
 import { persistor, store } from './store/store'
-import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
+import { Provider } from 'react-redux'
+import Header from './components/Header/Header'
 
 const pathwayExtremeFont = Pathway_Extreme({ subsets: ['latin'] })
 
@@ -23,45 +24,7 @@ function RootLayout({ children }) {
             </div>
               <Provider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
-                    <header className="header">
-                        <nav>
-                            <section className="header-left">
-                                <Link className="title-gymtools link" href="/">
-                                    <h1>GymTools</h1>
-                                </Link>
-                                <Link className="link-with-svg link" href='/gym-equipments'>
-                                    Gym Equipments
-                                    <img
-                                        className="svg"
-                                        src="/chevron-down.svg"
-                                        alt="A SVG of chevron down"
-                                    />
-                                </Link>
-                                <Link className="link-with-svg link" href='/calisthenics-equipments'>
-                                    Calisthenics Equipments
-                                    <img
-                                        className="svg"
-                                        src="/chevron-down.svg"
-                                        alt="A SVG of chevron down"
-                                    />
-                                </Link>
-                                <Link className='link' href='/lookbook'>Lookbook</Link>
-                            </section>
-                            <section className="header-right">
-                                <div className="search">
-                                    <img src="/search.svg" alt="A SVG of search" />
-                                </div>
-                                <div className="user">
-                                    <img src="/user.svg" alt="A SVG of user" />
-                                </div>
-                                <div className="cart">
-                                    <Link href={'/cart'}>
-                                    <img src="/cart.svg" alt="A SVG of cart" />
-                                    </Link>
-                                </div>
-                            </section>
-                        </nav>
-                    </header>
+                    <Header className='header'/>
                     {children}
                 </PersistGate>
               </Provider>
