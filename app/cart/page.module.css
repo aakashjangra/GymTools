@@ -93,9 +93,19 @@
 button.checkout{
     height: 3rem;
     width: 20rem;
-    font-size: medium;
-    color: var(--color-secondary);
+    font-size: 0.9rem;
     background-color: var(--color-primary);
+    cursor: pointer;
+}
+
+button.checkout > a{
+    color: var(--color-secondary);
+    text-decoration: none;
+}
+
+button.checkout:hover{
+    padding-top: 1px;
+    outline: 1px solid black;
 }
 
 .quantityInputContainer {
@@ -119,6 +129,7 @@ button.checkout{
     left: 0;
     right: 0;
     text-align: center;
+    padding-left: 0.5rem;
 }
 
 .quantityDecrement,
@@ -135,11 +146,43 @@ button.checkout{
 .quantityDecrement {
     position: absolute;
     left: 0.3rem;
-    top: 1.3rem;
+    top: 0.2rem;
 }
 
 .quantityIncrement {
     position: absolute;
     right: 0.3rem;
-    top: 1.4rem;
+    top: 0.3rem;
+}
+
+.middleSection{
+    display: flex;
+    gap: 1.5rem;
+}
+
+button.itemDelete{
+    display: flex;
+    width: fit-content;
+    background-color: unset;
+    border: none;
+    padding-top: 0.5rem;
+}
+
+button.itemDelete > img{
+    cursor: pointer;
+}
+
+h2.emptyCart{
+    position: relative;
+    font-size: xx-large;
+    font-weight: 400;
+    padding: 5rem;
+    text-align: center;
+}
+
+h2.emptyCart > .faceEmoji{
+    position: absolute;
+    top: 5.3rem;
+    font-style: normal;
+    margin-left: 1rem;
 }

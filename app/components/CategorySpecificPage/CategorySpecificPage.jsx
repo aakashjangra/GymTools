@@ -77,7 +77,7 @@ function CategorySpecificPage({title, category}) {
             default:
                 break;
         }
-                if(!priceFilterMin || !priceFilterMax) filterProductsOnPrice();
+                if(priceFilterMin && priceFilterMax) filterProductsOnPrice();
     }
     
     const setHighestPriceFromProducts = (products) => {

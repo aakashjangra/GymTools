@@ -53,10 +53,20 @@ function RootLayout({ children }) {
                     <div>
                         <h3 className="footer-headings">Info</h3>
                         <ul className="list">
-                            <li>About</li>
-                            <li>Contact Us</li>
-                            <li>Shopping Policy</li>
-                            <li>Blog</li>
+                            <li>
+                                <Link href={'/'}>
+                                    About
+                                </Link>
+                            </li>
+                            <li><Link href={'/'}>
+                                    Contact Us
+                                </Link></li>
+                            <li><Link href={'/'}>
+                                    Shopping Policy
+                                </Link></li>
+                            <li><Link href={'/'}>
+                                    Blog
+                                </Link></li>
                         </ul>
                     </div>
                     <div>
