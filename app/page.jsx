@@ -7,31 +7,37 @@ import { addDoc, getDocs, collection } from "firebase/firestore";
 import Product from './components/Products/Products';
 import Products from './components/Products/Products';
 import Link from 'next/link';
+import { useDispatch, useSelector } from 'react-redux';
+import { setProducts } from './store/productSlice';
+import EightProducts from './components/EightProducts/EightProducts';
 
 export default function Home() {
-    const [products, setProducts] = useState([]);
-    const productsCollectionRef = collection(db, "products"); //the second parameter should match collection name in our db
-    const getProducts = async () => {
-        //READ THE  DATA
-        //STORE IN PRODUCTS ARRAY
-        try {
-            const data = await getDocs(productsCollectionRef);
-            const filteredData = data.docs.map((doc) => (
-                {
-                    id: doc.id,
-                    ...doc.data()
-                }
-                ))
-            setProducts(filteredData);
-        } catch (err) {
-            console.error(err);
-        }
-    }
-    
-    useEffect(() => {
-        getProducts();
-    }, [])    
+    const products = useSelector((state) => state.productStore.products);
+    const dispatch = useDispatch();
 
+    const getProducts = async() => {
+        const productsCollectionRef = collection(db, "products"); //the second parameter should match collection name in our db
+            try {
+                const data = await getDocs(productsCollectionRef);
+                const filteredData = data.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+                dispatch(setProducts({products: filteredData}));
+                console.log("fil", filteredData)
+            } catch (err) {
+                console.error(err);
+            }
+    }
+
+    useEffect(() => {
+        if(!products || products.length === 0){
+            getProducts();
+        };
+    }, [])    
+    useEffect(() => {
+        console.log('products are-> ', products);
+    }, [products])   
     // const addProduct = async () => {
     //     try {
     //         const docRef = await addDoc(collection(db, "products"), {
@@ -73,14 +79,7 @@ export default function Home() {
                   your goals
               </p>
               {products?.length > 0 ? (
-                      (function renderEightProducts() {
-                          let renderProducts = [];
-                          for (let i = 0; i < 8; i++) {
-                              const product = products[i];
-                              renderProducts.push(product);
-                          }
-                          return <Products products={renderProducts} />;
-                      })()
+                      <EightProducts products={products} />
               ) : (
                   <p>No products right now.</p>
               )}

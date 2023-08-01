@@ -28,9 +28,9 @@
     width: var(--size-inner);
     text-align: center;
     font-size: large;
-    /* color: var(--color-primary); */
     background-color: var(--color-secondary);
     border: none;
+    cursor: pointer;
 }
 
 .quantityDecrement {

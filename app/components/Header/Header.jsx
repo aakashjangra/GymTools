@@ -1,12 +1,68 @@
 import Link from 'next/link';
-import React from 'react'
+import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 
 function Header({className: cName}) {
+    const router = useRouter();
     const cart = useSelector((state) => state.cart.cartItems);
+    const products = useSelector((state) => state.productStore.products);
+    const [ searchBoxVisible, setSearchBoxVisible ] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [searchResults, setSearchResults] = useState(products);
+
+    const handleSearchChange = (query) => {
+        setSearchQuery(query);
+
+        // Filter the items based on the search query
+        const filteredItems = products?.filter((item) =>
+            item.title.toLowerCase().includes(query.toLowerCase())
+        );
+        setSearchResults(filteredItems);
+    };
+
+    const closeSearchBox = () => {
+        handleSearchChange('');
+        setSearchBoxVisible(false);
+    }
+
+    useEffect(() => {
+        setSearchResults(products);
+    }, [products]);
 
   return (
     <header className={cName}>
+                            {/* absolute positioned search box */}
+                            <div className={`searchBox ${searchBoxVisible? 'visible': 'hidden'}`}>
+                                    <input type="text" placeholder="Search..."
+                                       value={searchQuery}
+                                       onChange={(e) => handleSearchChange(e.target.value)}
+                                       name="search" />
+                                    <button className='search'>    
+                                        <img src="/search.svg" alt="A SVG of search" />
+                                    </button>
+                                    <button className='closeSearchBox' onClick={closeSearchBox}>X</button>
+                                {
+                                    searchQuery && searchQuery != '' && searchResults?.length > 0 && (
+                                        <section className='searchResults'>
+                                            <p className='searchResultsCategory'>Products</p>
+                                            <ul>
+                                                {searchResults?.map((item) => (
+                                                    <li key={item.id} className='searchResult' 
+                                                          onClick={() => {
+                                                            closeSearchBox();
+                                                            router.push( `/product?pid=${item.id}`)
+                                                        }}
+                                                    >
+                                                            <img className='image' src={item.imageUrls[0]} alt={`image of ${item.title} (product)`} />
+                                                            <h4 className='title'>{item.title}</h4>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </section>
+                                    )
+                                }
+                            </div>
                         <nav>
                             <section className="header-left">
                                 <Link className="title-gymtools link" href="/">
@@ -31,13 +87,13 @@ function Header({className: cName}) {
                                 <Link className='link' href='/lookbook'>Lookbook</Link>
                             </section>
                             <section className="header-right">
-                                <div className="search">
+                                <button className="search" onClick={() => setSearchBoxVisible(true)}>
                                     <img src="/search.svg" alt="A SVG of search" />
-                                </div>
-                                <div className="user">
+                                </button>
+                                <button className="user">
                                     <img src="/user.svg" alt="A SVG of user" />
-                                </div>
-                                <div className="cart">
+                                </button>
+                                <button className="cart">
                                     <Link href={'/cart'}>
                                     <img src="/cart.svg" alt="A SVG of cart" className='cartSvg'/>
                                     {
@@ -46,10 +102,10 @@ function Header({className: cName}) {
                                         )
                                     }
                                     </Link>
-                                </div>
+                                </button>
                             </section>
                         </nav>
-                    </header>
+    </header>
   )
 }
 

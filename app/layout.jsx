@@ -16,6 +16,7 @@ export const metadata = {
 }
 
 function RootLayout({ children }) {
+    
   return (
       <html lang="en">
           <body className={pathwayExtremeFont.className}>
@@ -79,7 +80,8 @@ function RootLayout({ children }) {
                     </div>
                 </section>
                 <section className="lower-footer credits copyright">
-                    <p>© 2023, Architecture, Flow and Programming by Akash</p>
+                    <p>© 2023, Architecture, Flow and Programming by <a id='linkedin-reference' href="https://www.linkedin.com/in/akashjangra1/">
+                        Akash</a></p>
                     <p>
                         © 2023, Design inspired by theme-dawn-demo Powered by
                         Shopify

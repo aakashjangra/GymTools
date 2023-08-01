@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux';
-import QuantitySelector from '../components/QuantitySelector/QuantitySelector';
 import {clearCart, removeFromCart, updateCartItemQuantity} from '../store/cartSlice';
 import Image from 'next/image';
 

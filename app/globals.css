@@ -2,6 +2,7 @@ html {
   --color-primary: #121212;
   --color-secondary: rgb(255, 255, 255);
   --color-border-grey: rgb(230, 230, 230);
+  --color-hover: rgb(243, 242, 242);
   --opacity: 0.7;
   --padding-content: 10vw;
 }
@@ -37,10 +38,13 @@ body{
 }
 
 .header{
-  height: 6.5em;
+  --header-height: 6.5em;
+
+  height: var(--header-height);
+  position: relative;
   display: flex;
   align-items: center;
-  border-bottom: var(--color-border-grey) 1px solid;
+  border-bottom: 1px solid var(--color-border-grey);
   padding: 0 var(--padding-content);
 }
 
@@ -49,6 +53,95 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.header .searchBox.visible {
+  --searchBox-height: 3rem;
+  --searchBox-input-width: 40rem;
+
+  position: absolute;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: var(--color-secondary);
+}
+
+.searchBox input{
+  height: var(--searchBox-height);
+  width: var(--searchBox-input-width);
+  padding: 0 2rem 0 1rem;
+  font-size: medium;
+}
+
+.searchBox button.search, .searchBox button.closeSearchBox{
+  background-color: unset;
+  border: unset;
+  cursor: pointer;
+}
+
+.searchBox button.search{
+  position: absolute;
+  right: 23.2rem;
+  padding: 0.5rem;
+  z-index: 12;
+  background-color: var(--color-secondary);
+}
+
+.searchBox button.closeSearchBox{
+  font-size: large;
+}
+
+.header .searchBox.hidden {
+  display: none;
+}
+
+.header .searchBox .searchResults{
+  height: 30rem;
+  overflow-y: scroll;
+  position: absolute;
+  top: var(--header-height);
+  padding: 1rem;
+  width: calc(var(--searchBox-input-width));
+  text-decoration: none;
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
+}
+
+.header .searchBox .searchResults .searchResultsCategory{
+  padding: 0 0 1rem 1rem;
+  border-bottom: 1px solid var(--color-border-grey);
+}
+
+.header .searchBox .searchResults .searchResult{
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.header .searchBox .searchResults .searchResult:hover {
+  background-color: var(--color-hover);
+}
+
+.header .searchBox .searchResults .searchResult:hover .title{
+  text-decoration: underline;
+}
+
+.header .searchBox .searchResults .searchResult .title {
+  font-size: small;
+  font-weight: normal;
+}
+.header .searchBox .searchResults .searchResult > img.image{
+  height: 3rem;
+  width: 3rem;
+  border: 1px solid var(--color-border-grey);
 }
 
 .header nav .header-left{
@@ -80,6 +173,12 @@ body{
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.header-right button{
+  background-color: unset;
+  border: unset;
+  cursor: pointer;
 }
 
 .header .cart{
