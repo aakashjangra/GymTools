@@ -10,10 +10,10 @@ import Header from './components/Header/Header'
 
 const pathwayExtremeFont = Pathway_Extreme({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'HomePage | GymTools',
-  description: 'Homepage of GymTools E-commerce site',
-}
+// export const metadata = {
+//   title: 'HomePage | GymTools',
+//   description: 'Homepage of GymTools E-commerce site',
+// }
 
 function RootLayout({ children }) {
     
