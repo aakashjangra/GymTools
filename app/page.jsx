@@ -1,11 +1,9 @@
 "use client";
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import styles from './page.module.css'
 import { db } from './config/firebase';
 // getDocs to get multiple docs together, doc to get 1(single) entry
-import { addDoc, getDocs, collection } from "firebase/firestore";
-import Product from './components/Products/Products';
-import Products from './components/Products/Products';
+import { getDocs, collection } from "firebase/firestore";
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { setProducts } from './store/productSlice';
@@ -72,7 +70,7 @@ export default function Home() {
           </section>
           <section className={styles.productShowcase}>
               <h3 className={styles.heading}>
-                  Crafted with care. Built for results.
+                  Crafted with care.<br/> Built for results.
               </h3>
               <p className={styles.description}>
                   Equipment that's built to last, and designed to help you reach

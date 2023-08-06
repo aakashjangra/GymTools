@@ -103,3 +103,54 @@
 .lowerSection{
     margin: 3rem 0;
 }
+
+@media screen and (width <= 600px) {
+    .upperSection {
+        grid-template-columns: 1fr;
+    }
+    .mobileHidden{
+        display: none;
+    }
+    .title {
+        font-weight: 300;
+    }
+    .pricingContainer{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 2rem;
+    }
+    .pricingContainer .price{
+        font-size: small;
+    }
+    .addToCart, .buyItNow{
+        height: 6rem;
+        font-weight: 100;
+    }
+    .addToCart > p{
+        opacity: 0.9;
+    }
+    .buyItNow{
+        margin-bottom: 5rem;
+    }
+    .description{
+        font-size: small;
+        word-spacing: 0.5rem;
+        line-height: 3rem;
+    }
+    .features{
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .feature .heading {
+        font-size: medium;
+        font-weight: 300;
+    }
+} 
+
+@media screen and (width > 600px){
+    .desktopHidden{
+        display: none;
+    }
+}

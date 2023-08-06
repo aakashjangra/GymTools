@@ -8,6 +8,7 @@ import styles from './page.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../store/cartSlice';
 import QuantitySelector from '../components/QuantitySelector/QuantitySelector';
+import ImageSlider from '../components/ImageSlider/ImageSlider';
 
 
 function Product() {
@@ -49,36 +50,37 @@ function Product() {
       (
         <section className={styles.product}>
           <section className={styles.upperSection}>
-
-         <section className={styles.images}>
-           
-              {
-                product.imageUrls.length > 0 ?
-                (
-                  product.imageUrls.map((imageUrl) => {
-                    counter++;
-                    return <img className={`image${counter} ${styles.image}`} src={imageUrl} key={imageUrl} alt={`${product.title} image`} />
-                  }
-                  )
-                ) : 
-                (
-                  <img src='' alt='image not found' />
-                )
-            }
-          
-         </section>
+            <section className={`${styles.images} ${styles.mobileHidden}`}>
+              
+                  {
+                    product.imageUrls.length > 0 ?
+                    (
+                      product.imageUrls.map((imageUrl) => {
+                        counter++;
+                        return <img className={`image${counter} ${styles.image}`} src={imageUrl} key={imageUrl} alt={`${product.title} image`} />
+                      }
+                      )
+                    ) : 
+                    (
+                      <img src='' alt='image not found' />
+                    )
+                }
+            </section>
+            <ImageSlider className={styles.desktopHidden} images={product.imageUrls} />
          <section className={styles.aboutProduct}>
           <h2 className={styles.title} >{product.title}</h2>
-            <h3 className={styles.salePrice}>₹ {product.salePrice} INR</h3>
-            <h4 className={styles.price}>₹ {product.price} INR</h4>
+            <div className={styles.pricingContainer}>
+              <h3 className={styles.salePrice}>₹ {product.salePrice} INR</h3>
+              <h4 className={styles.price}>₹ {product.price} INR</h4>
+            </div>
           <QuantitySelector quantity={quantity} setQuantity={setQuantity}/>
                 <button className={styles.addToCart} onClick={()=> {
                   
                   console.log('addtocart func- ', addToCart)
                   dispatch(addToCart({product, quantity}));
                   console.log('cart setted', cart);
-                }} >Add to cart</button>
-                <button className={styles.buyItNow}>Buy it now</button>
+                }} ><p>Add to cart</p></button>
+                <button className={styles.buyItNow}><p>Buy it now</p></button>
                 <p className={styles.description}>{product.description}</p>
          </section>
                   </section>

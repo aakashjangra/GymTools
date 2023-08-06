@@ -31,8 +31,8 @@ function Cart() {
          (
             <section className={styles.products}>
               <section className={styles.tHeadings}>
-                <div className={styles.thead}>PRODUCT</div>
-                <div className={styles.thead}>QUANTITY</div>
+                <div className={`${styles.thead} ${styles.product}`}>PRODUCT</div>
+                <div className={`${styles.thead} ${styles.quantity}`}>QUANTITY</div>
                 <div className={`${styles.thead} ${styles.total}`}>TOTAL</div>
               </section>
                {
@@ -73,7 +73,7 @@ function Cart() {
                }
             </section>
          ) : (
-          <h2 className={styles.emptyCart}>Your cart is Empty! <i className={styles.faceEmoji}>˙◠˙</i></h2>
+          <h2 className={styles.emptyCart}><p>Your cart is Empty! <i className={styles.faceEmoji}>˙◠˙</i></p></h2>
          )
          }
 

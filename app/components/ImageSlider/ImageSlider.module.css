@@ -1,0 +1,53 @@
+/* ImageSlider.module.css */
+
+.slider {
+    height: 40rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slides {
+    height: 100%;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+}
+
+.slide, .slideActive{
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    object-fit: cover;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+}
+
+.slideActive {
+    opacity: 1;
+}
+
+.prevBtn,
+.nextBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border: none;
+    cursor: pointer;
+}
+
+.prevBtn {
+    left: 10px;
+}
+
+.nextBtn {
+    right: 10px;
+}

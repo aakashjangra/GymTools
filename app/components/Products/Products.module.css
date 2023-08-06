@@ -66,3 +66,22 @@
     font-size: smaller;
     text-decoration: line-through;
 }
+
+@media screen and (width <= 600px) {
+    .products{
+        grid-template-columns: 1fr 1fr;
+        margin: 5rem 0;
+    }    
+    .product{
+        height: 35vh;
+    }
+    .product .productImages {
+        height: 60%;
+    }
+    .product .productName{
+        font-size: smaller;
+    }
+    .product .pricing{
+        flex-direction: column;
+    }
+}

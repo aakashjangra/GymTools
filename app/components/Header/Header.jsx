@@ -26,6 +26,12 @@ function Header({className: cName}) {
         setSearchBoxVisible(false);
     }
 
+    const itemsInCart = (cart) => {
+        let count = 0;
+        cart.forEach((item) => count += item.quantity);
+        return count;
+    }
+
     useEffect(() => {
         setSearchResults(products);
     }, [products]);
@@ -38,9 +44,6 @@ function Header({className: cName}) {
                                        value={searchQuery}
                                        onChange={(e) => handleSearchChange(e.target.value)}
                                        name="search" />
-                                    <button className='search'>    
-                                        <img src="/search.svg" alt="A SVG of search" />
-                                    </button>
                                     <button className='closeSearchBox' onClick={closeSearchBox}>X</button>
                                 {
                                     searchQuery && searchQuery != '' && searchResults?.length > 0 && (
@@ -65,10 +68,13 @@ function Header({className: cName}) {
                             </div>
                         <nav>
                             <section className="header-left">
+                                <button className='hamburger desktop-hidden'>
+                                        <img src="/hamburger.svg" alt="A SVG of hamburger" />
+                                </button>
                                 <Link className="title-gymtools link" href="/">
                                     <h1>GymTools</h1>
                                 </Link>
-                                <Link className="link-with-svg link" href='/gym-equipments'>
+                                <Link className="link-with-svg link mobile-hidden" href='/gym-equipments'>
                                     Gym Equipments
                                     <img
                                         className="svg"
@@ -76,7 +82,7 @@ function Header({className: cName}) {
                                         alt="A SVG of chevron down"
                                     />
                                 </Link>
-                                <Link className="link-with-svg link" href='/calisthenics-equipments'>
+                                <Link className="link-with-svg link mobile-hidden" href='/calisthenics-equipments'>
                                     Calisthenics Equipments
                                     <img
                                         className="svg"
@@ -84,13 +90,13 @@ function Header({className: cName}) {
                                         alt="A SVG of chevron down"
                                     />
                                 </Link>
-                                <Link className='link' href='/lookbook'>Lookbook</Link>
+                                <Link className='link mobile-hidden' href='/lookbook'>Lookbook</Link>
                             </section>
                             <section className="header-right">
                                 <button className="search" onClick={() => setSearchBoxVisible(true)}>
                                     <img src="/search.svg" alt="A SVG of search" />
                                 </button>
-                                <button className="user">
+                                <button className="user mobile-hidden">
                                     <img src="/user.svg" alt="A SVG of user" />
                                 </button>
                                 <button className="cart">
@@ -98,7 +104,7 @@ function Header({className: cName}) {
                                     <img src="/cart.svg" alt="A SVG of cart" className='cartSvg'/>
                                     {
                                         cart?.length > 0 && (
-                                            <p className='cartItemsCount'>{cart?.length}</p>
+                                            <p className='cartItemsCount'>{itemsInCart(cart)}</p>
                                         )
                                     }
                                     </Link>

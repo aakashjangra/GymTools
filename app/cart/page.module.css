@@ -29,6 +29,7 @@
 .tHeadings, .product{
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
+    justify-content: space-between;
 }
 
 .tHeadings{
@@ -176,13 +177,99 @@ h2.emptyCart{
     position: relative;
     font-size: xx-large;
     font-weight: 400;
-    padding: 5rem;
+    padding: 5rem 0;
     text-align: center;
 }
 
-h2.emptyCart > .faceEmoji{
+h2.emptyCart > p > .faceEmoji{
     position: absolute;
     top: 5.3rem;
     font-style: normal;
     margin-left: 1rem;
+}
+
+@media screen and (width <= 600px) {
+    .heading {
+        font-size: x-large;
+    }
+    .linkToProducts {
+        font-size: small;
+    }
+    .thead.quantity{
+        display: none;
+    }
+    .products {
+        gap: 5rem;
+        padding: 8rem 0;
+    }
+    .tHeadings,
+    .product {
+        display: grid;
+        grid-template-columns: none;
+        grid-template-areas: 
+        "product-info total"
+        "quantity total";
+        gap: 1rem;
+    }
+    .product .info{
+        grid-area: product-info;
+    }
+    .product .middleSection{
+        grid-area: quantity;
+
+    }
+    .product .total{
+        grid-area: total;
+    }
+    .product .productImage {
+        height: 16rem;
+        width: 16rem;
+    }
+    .product .info .title {
+        font-size: 2rem;
+        font-weight: 400;
+    }
+    .quantityInputContainer {
+        --size: 7rem;
+        --size-inner: 6.5rem;
+        --container-width: calc(var(--size)*3);
+
+        height: var(--size);
+    }
+    .quantityDecrement {
+        height: calc(var(--size-inner) - 1px);
+        top: 0.3rem;
+    }
+    .billing {
+        align-items: center;
+        margin-top: 8rem;
+        margin-bottom: 3rem;
+    }
+    
+    .billing .note {
+        font-size: smaller;
+    }
+
+    button.checkout {
+        height: 5rem;
+        width: 25rem;
+        font-size: 2rem;
+    }
+
+    button.itemDelete {
+        align-items: center;       
+    }
+
+    button.itemDelete>img {
+        height: 3rem;
+        width: 3rem;
+    }
+    
+    h2.emptyCart {
+        text-align: center;
+        font-size: x-large;
+    }
+    h2.emptyCart>p>.faceEmoji {
+        top: 5.5rem;
+    }
 }

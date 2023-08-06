@@ -74,22 +74,14 @@ body{
 .searchBox input{
   height: var(--searchBox-height);
   width: var(--searchBox-input-width);
-  padding: 0 2rem 0 1rem;
+  padding: 0 1rem;
   font-size: medium;
 }
 
-.searchBox button.search, .searchBox button.closeSearchBox{
+.searchBox button.closeSearchBox{
   background-color: unset;
   border: unset;
   cursor: pointer;
-}
-
-.searchBox button.search{
-  position: absolute;
-  right: 23.2rem;
-  padding: 0.5rem;
-  z-index: 12;
-  background-color: var(--color-secondary);
 }
 
 .searchBox button.closeSearchBox{
@@ -101,7 +93,7 @@ body{
 }
 
 .header .searchBox .searchResults{
-  height: 30rem;
+  height: 70vh;
   overflow-y: scroll;
   position: absolute;
   top: var(--header-height);
@@ -113,12 +105,15 @@ body{
 }
 
 .header .searchBox .searchResults .searchResultsCategory{
+  font-size: small;
+  opacity: 0.7;
+  text-transform: uppercase;
   padding: 0 0 1rem 1rem;
   border-bottom: 1px solid var(--color-border-grey);
 }
 
 .header .searchBox .searchResults .searchResult{
-  height: 4rem;
+  height: 100%;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -175,7 +170,7 @@ body{
   gap: 10px;
 }
 
-.header-right button{
+.header-right button, .hamburger{
   background-color: unset;
   border: unset;
   cursor: pointer;
@@ -217,13 +212,13 @@ body{
 
 .upper-footer{
   display: flex;
-  gap: 13em;
+  gap: 13rem;
   padding: 2em var(--padding-content);
 }
 
 .footer-headings{
   font-weight: 600;
-  margin: 2em 0;
+  margin: 2rem 0;
 }
 
 .footer .list a {
@@ -237,11 +232,79 @@ body{
 
 .footer .list li, .footer div p{
   opacity: var(--opacity);
-  margin: 1em 0;
+  margin: 1rem 0;
 }
 
 .lower-footer{
   font-size: 11px;
-  border-top: 1px solid var(--color-border-grey);
+  opacity: 0.7;
   padding: 2em var(--padding-content);
+  border-top: 1px solid var(--color-border-grey);
+}
+
+@media screen and (width <= 600px) {
+  html{
+    font-size: 7px;
+    --padding-content: 2rem;
+  }
+  .mobile-hidden{
+    display: none !important;
+  }
+  .header{
+    --header-height: 4.5em;
+  }
+  .announcement-bar {
+    font-size: small;  
+  }
+  .header .cart .cartItemsCount {
+    height: 1.5rem;
+    width: 1.5rem;
+    font-size: 1rem;
+  }
+  .searchBox{
+    padding: 1rem;
+  }
+  .searchBox input {
+    height: 100%;
+    width: var(--searchBox-input-width);
+  }
+  .header .searchBox .searchResults {
+    height: 85vh;
+    width: 100%;
+  } 
+  .header .searchBox .searchResults .searchResult {
+    height: 100%;
+  }
+  .header .searchBox .searchResults .searchResult .title {
+    font-size: smaller;
+    font-weight: normal;
+  } 
+  .header .searchBox .searchResults .searchResult>img.image {
+    height: 6rem;
+    width: 6rem;
+  }
+  .upper-footer{
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 4rem;
+  }
+  .footer-headings {
+    font-weight: 500;
+    margin: 3rem 0;
+    font-size: 2rem;
+  }
+  .footer .list li,
+  .footer div p {
+    font-size: small;
+    margin: 3rem 0;
+  }
+  .lower-footer {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (width > 600px) {
+  .desktop-hidden{
+    display: none !important;
+  }
 }

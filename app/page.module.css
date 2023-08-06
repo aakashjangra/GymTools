@@ -73,3 +73,38 @@
     opacity: 0.7;
     letter-spacing: 1px;
 }
+
+@media screen and (width <=600px) {
+    .banner{
+        padding-top: 10vh;
+        height: 70vh;
+        background-size: contain;
+    }
+    .banner .heading{
+        font-size: 2.7em; 
+    }
+    .banner button.shopNow{
+        margin-top: 2rem;
+    }
+    .heading {
+        font-size: 2em;
+    }
+    .description{
+        font-size: smaller;
+    }
+    .productShowcase{
+        padding: 0 1rem;
+    }   
+    .reviews{
+        flex-direction: column;
+        margin-bottom: 12rem;
+    }
+    .review .name {
+        font-size: large;
+        margin: 2rem 0;
+    }
+
+    .review .reviewContent {
+        letter-spacing: unset; 
+    }
+}
