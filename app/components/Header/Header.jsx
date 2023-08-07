@@ -10,6 +10,12 @@ function Header({className: cName}) {
     const [ searchBoxVisible, setSearchBoxVisible ] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState(products);
+    //used for hamburger menu, mobile only
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    }
 
     const handleSearchChange = (query) => {
         setSearchQuery(query);
@@ -66,11 +72,44 @@ function Header({className: cName}) {
                                     )
                                 }
                             </div>
-                        <nav>
-                            <section className="header-left">
-                                <button className='hamburger desktop-hidden'>
-                                        <img src="/hamburger.svg" alt="A SVG of hamburger" />
+                        <nav className='header-nav'>
+                            {/* hamburger menu mobile */}
+                                <button className='hamburger desktop-hidden' onClick={toggleMenu}>
+                                        {
+                                            menuOpen? (
+                                                <img src="/close.svg" className='svg' alt="A SVG of close button" />
+                                            ): (
+                                                <img src="/hamburger.svg" className='svg' alt="A SVG of hamburger" />
+                                            )
+                                        }
                                 </button>
+                                <div className={`menu ${menuOpen ? 'open' : 'closed'} desktop-hidden`}>
+                                    {/* Add your menu items here */}
+                                    <div onClick={toggleMenu}>
+                                        <Link className="link-with-svg link" href='/gym-equipments'>
+                                            Gym Equipments
+                                            <img
+                                                className="svg"
+                                                src="/arrow-right.svg"
+                                                alt="A SVG of arrow right"
+                                                />
+                                        </Link>
+                                    </div>
+                                    <div onClick={toggleMenu}>
+                                        <Link className="link-with-svg link" href='/calisthenics-equipments'>
+                                            Calisthenics Equipments
+                                            <img
+                                                className="svg"
+                                                src="/arrow-right.svg"
+                                                alt="A SVG of arrow right"
+                                            />
+                                        </Link>
+                                    </div>
+                                    <div onClick={toggleMenu}>
+                                        <Link className='link' href='/lookbook'>Lookbook</Link>
+                                    </div>
+                                </div>
+                            <section className="header-left">
                                 <Link className="title-gymtools link" href="/">
                                     <h1>GymTools</h1>
                                 </Link>

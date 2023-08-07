@@ -5,6 +5,8 @@ html {
   --color-hover: rgb(243, 242, 242);
   --opacity: 0.7;
   --padding-content: 10vw;
+
+  scroll-behavior: smooth;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -253,6 +255,35 @@ body{
   .header{
     --header-height: 4.5em;
   }
+  .menu {
+    position: absolute;
+    top: calc(var(--header-height) - 1px);
+    left: -90vw;
+    /* Initial position to the left */
+    width: 90vw;
+    height: calc(92.5vh - (var(--header-height) - 1px));
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    padding-top: 9rem;
+    background-color: var(--color-secondary);
+    transition: left 0.3s ease;
+    z-index: 10;
+    overflow: hidden;
+  }
+  .menu.open {
+    left: 0;
+    /* Position to the right when the menu is open */
+  }
+  .menu a.link{
+    color: initial; 
+    text-decoration: none;
+    font-size: medium;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3rem;
+  }
   .announcement-bar {
     font-size: small;  
   }
@@ -301,6 +332,20 @@ body{
   .lower-footer {
     font-size: 1.3rem;
   }
+    .hamburger {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .hamburger > img{
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+       
 }
 
 @media screen and (width > 600px) {
