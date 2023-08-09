@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
-import styles from './Products.module.css';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import styles from './Products.module.css';
 
 function Products({ products }) {
     const router = useRouter();

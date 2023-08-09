@@ -70,6 +70,7 @@
 @media screen and (width <= 600px) {
     .products{
         grid-template-columns: 1fr 1fr;
+        padding: 0 var(--padding-content);
         margin: 5rem 0;
     }    
     .product{

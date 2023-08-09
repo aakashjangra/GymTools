@@ -88,3 +88,185 @@
     display: flex;
     gap: 1rem;
 }
+
+@media screen and (width <= 600px) {
+    .pageHeading{
+        font-size: x-large;
+        font-weight: 400;
+        padding: 3rem var(--padding-content);
+    }
+    .mobileHidden{
+        display: none;
+    }
+    .filterSortButton{
+        display: flex;
+        gap: 1rem;
+        opacity: var(--opacity);
+        cursor: pointer;
+    }
+    .filterSortButton:hover > p{
+        text-decoration: underline;
+    }
+    .filterSortOverlay.open{
+        right: 0;
+    }
+    .filterSortOverlay{
+        --overlay-width: 85vw;
+        
+
+        position: absolute;
+        width: var(--overlay-width);
+        height: 100vh;
+        top: 0;
+        right: calc(0rem - var(--overlay-width));
+        background-color: var(--color-secondary);
+        transition: right 0.3s ease;
+        z-index: 10;
+        overflow: hidden;
+    }
+    .filterSortOverlay .head{
+        height: 10vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid var(--color-border-grey);
+    }
+    .filterSortOverlay .head .about{
+        justify-self: center;
+        cursor: default
+    }
+    .filterSortOverlay .closeButton{
+        --size: 5rem;
+
+        position: absolute;
+        right: 0;
+        height: var(--size);
+        width: var(--size);
+        margin-right: 1rem;
+        cursor: pointer;
+    }
+
+    .filterAndSortOptions{
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        padding: 3rem 0;
+    }
+
+    .filterAndSortOptions .option{
+        font-size: medium;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 3rem;
+        opacity: var(--opacity);
+    }
+
+    .filterAndSortOptions .option.sort select{
+        height: 8rem;
+        border: none;
+        outline: none;
+    }
+    
+    .filterAndSortOptions .option.sort select:focus-visible{
+        outline: 1px solid black;
+    }
+    .filterSortOverlay .foot,
+    .priceFilterOverlay .foot{
+        position: absolute;
+        bottom: 0;
+        height: 10rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: var(--grey-border);
+    }
+
+    .filterAndSortOptions .filter.option{
+        cursor: pointer;
+    }
+
+    .overlay .foot .first{
+        padding: 0 15%;
+        text-decoration: underline;
+        opacity: var(--opacity);
+        cursor: pointer;
+    }
+
+    .overlay .foot .second {
+        padding: 3% 15%;
+        color: var(--color-secondary);
+        background-color: var(--color-primary);
+        cursor: pointer;
+    }
+
+    
+    .priceFilterOverlay.open{
+        right: 0;
+    }
+    
+    .priceFilterOverlay{
+        --overlay-width: 85vw;
+
+        position: absolute;
+        height: 90vh;
+        width: var(--overlay-width);
+        top: 10vh;
+        right: calc(0rem - var(--overlay-width));
+        color: var(--color-primary);
+        background-color: var(--color-secondary);
+        z-index: 12;
+    }
+
+    .priceFilterOverlay .body{
+        padding: 5rem 3rem;
+    }
+
+    .priceFilterOverlay .highestPriceContainer{
+        opacity: var(--opacity);
+        padding: 2rem 0;
+    }
+
+    .priceFilterOverlay .foot{
+        display: flex;
+    }
+
+    .priceFilterOverlay .back{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        cursor: pointer;
+    }
+
+    .filterOptionPopup {
+        display: flex;
+        position: initial;
+        flex-direction: column;
+        z-index: none;
+        background-color: none;
+        padding: none;
+    }
+
+    .filterOptionPopup .inputs{
+        flex-direction: column;
+    }
+    .filterOptionPopup .inputs label.input{
+        opacity: var(--opacity);
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .filterOptionPopup .inputs .input input{
+        height: 6rem;
+        width: 15rem;
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (width > 600px){
+    .desktopHidden{
+        display: none;
+    }
+}
