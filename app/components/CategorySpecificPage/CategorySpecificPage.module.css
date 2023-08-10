@@ -108,7 +108,7 @@
         text-decoration: underline;
     }
     .filterSortOverlay.open{
-        right: 0;
+        left: 0;
     }
     .filterSortOverlay{
         --overlay-width: 85vw;
@@ -118,7 +118,7 @@
         width: var(--overlay-width);
         height: 100vh;
         top: 0;
-        right: calc(0rem - var(--overlay-width));
+        left: calc(0rem - var(--overlay-width));
         background-color: var(--color-secondary);
         transition: right 0.3s ease;
         z-index: 10;
@@ -193,6 +193,7 @@
         text-decoration: underline;
         opacity: var(--opacity);
         cursor: pointer;
+        overflow: hidden;
     }
 
     .overlay .foot .second {
@@ -204,7 +205,7 @@
 
     
     .priceFilterOverlay.open{
-        right: 0;
+        left: 0;
     }
     
     .priceFilterOverlay{
@@ -214,7 +215,7 @@
         height: 90vh;
         width: var(--overlay-width);
         top: 10vh;
-        right: calc(0rem - var(--overlay-width));
+        left: calc(0rem - var(--overlay-width));
         color: var(--color-primary);
         background-color: var(--color-secondary);
         z-index: 12;
@@ -254,13 +255,18 @@
     }
     .filterOptionPopup .inputs label.input{
         opacity: var(--opacity);
-        width: 50%;
+        width: fit-content;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+    }
+
+    .filterOptionPopup .inputs label.input .label{
+        width: 10rem;
     }
     .filterOptionPopup .inputs .input input{
         height: 6rem;
-        width: 15rem;
+        width: 30vw;
         padding: 0 1rem;
     }
 }

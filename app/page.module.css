@@ -1,7 +1,9 @@
 .banner{
-    padding-top: 50vh;
     height: 90vh;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: var(--color-secondary);
     background-image: url("/media/girl-calisthenics-banner.jpg");
     background-size: cover;
@@ -76,7 +78,6 @@
 
 @media screen and (width <=600px) {
     .banner{
-        padding-top: 10vh;
         height: 70vh;
         background-size: contain;
     }

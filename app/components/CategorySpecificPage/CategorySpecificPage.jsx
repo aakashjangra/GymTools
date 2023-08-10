@@ -230,10 +230,12 @@ function CategorySpecificPage({title, category}) {
                     <div className={styles.filterOptionPopup}>
                             <p className={styles.highestPriceContainer}>The highest price is ₹{highestPrice}</p>
                             <div className={styles.inputs}>
-                                    <label className={styles.input} htmlFor="minPrice" onChange={(event) => setPriceFilterMin(event.target.value)}>From: 
+                                    <label className={styles.input} htmlFor="minPrice" onChange={(event) => setPriceFilterMin(event.target.value)}>
+                                        <span className={styles.label}>From:</span> 
                                         <span>₹ <input type="number" id="minPrice" value={priceFilterMin}/></span>
                                     </label>
-                                    <label className={styles.input} htmlFor="maxPrice" onChange={(event) => setPriceFilterMax(event.target.value)}>To: 
+                                    <label className={styles.input} htmlFor="maxPrice" onChange={(event) => setPriceFilterMax(event.target.value)}>
+                                        <span className={styles.label}>To:</span>
                                         <span>₹ <input type="number" id="maxPrice" value={priceFilterMax}/></span>
                                     </label>
                             </div>
