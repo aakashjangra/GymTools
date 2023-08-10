@@ -76,6 +76,7 @@
     letter-spacing: 1px;
 }
 
+/* mobile phones */
 @media screen and (width <=600px) {
     .banner{
         height: 70vh;
@@ -107,5 +108,15 @@
 
     .review .reviewContent {
         letter-spacing: unset; 
+    }
+}
+
+/* tablets */
+@media screen and (width > 600px) and (width <= 900px) {
+    .heading {
+        font-size: 4rem;
+    }
+    .banner button.shopNow{
+       margin-top: 1rem;
     }
 }

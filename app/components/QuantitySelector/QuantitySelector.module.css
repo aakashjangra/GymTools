@@ -2,6 +2,8 @@
     --size: 2.5rem;
     --size-inner: 2rem;
     --container-width: calc(var(--size)*3.5);
+    --h-space: calc(var(--size-inner) / 7);
+    --v-space: calc(var(--size) / 1.9);
 
     position: relative;
     width: var(--container-width);
@@ -33,28 +35,37 @@
     cursor: pointer;
 }
 
-.quantityDecrement {
+.quantityDecrement{
     position: absolute;
-    left: 0.3rem;
-    top: 2.8rem;
+    left: var(--h-space);
+    top: var(--v-space);
 }
 
 .quantityIncrement {
     position: absolute;
-    right: 0.3rem;
-    top: 2.8rem;
+    right: var(--h-space);
+    top: var(--v-space);
 }
 
+/* Mobile  */
 @media screen and (width <= 600px){
     .quantityInputContainer {
         --size: 5rem;
         --size-inner: 4.5rem;
         --container-width: calc(var(--size)*3.5);
         --normal-spacing: 2rem;
+        --v-space: calc(var(--size) / 1.7);
 
-        position: relative;
-        width: var(--container-width);
         padding-bottom: var(--normal-spacing);
-        margin: var(--normal-spacing) 0;
+    }
+}
+
+/* Tablet */
+@media screen and (min-width: 600px) and (max-width: 900px){
+    .quantityInputContainer {
+        --size: 4rem;
+        --size-inner: 3.5rem;
+
+        --normal-spacing: 2rem;
     }
 }

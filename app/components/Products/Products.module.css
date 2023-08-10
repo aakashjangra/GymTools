@@ -67,6 +67,7 @@
     text-decoration: line-through;
 }
 
+/* Mobile */
 @media screen and (width <= 600px) {
     .products{
         grid-template-columns: 1fr 1fr;
@@ -85,4 +86,11 @@
     .product .pricing{
         flex-direction: column;
     }
+}
+
+/* Tablet */
+@media screen and (width > 600px) and (width <=900px) {
+    .product .productImages {
+            height: 60%;
+        }
 }

@@ -104,7 +104,8 @@
     margin: 3rem 0;
 }
 
-@media screen and (width <= 600px) {
+/* Mobile */
+@media screen and (width <= 700px) {
     .upperSection {
         grid-template-columns: 1fr;
     }
@@ -149,8 +150,30 @@
     }
 } 
 
-@media screen and (width > 600px){
+/* Desktop */
+@media screen and (width > 700px){
     .desktopHidden{
         display: none;
+    }
+}
+
+/* Tablet */
+@media screen and (min-width: 600px) and (max-width: 900px){
+    .images{
+        height: 100vh;
+    }
+    .pricingContainer {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1rem;
+    }
+    .addToCart,
+    .buyItNow {
+        height: 5rem;
+    }
+    .description {
+        font-size: small;
     }
 }
