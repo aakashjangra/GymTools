@@ -113,6 +113,8 @@ button.checkout:hover{
     --size: 2.5rem;
     --size-inner: 2rem;
     --container-width: calc(var(--size)*3.5);
+    --h-space: calc(var(--size-inner) / 6);
+    --v-space: calc(var(--size-inner) / 8);
 
     position: relative;
     width: var(--container-width);
@@ -144,16 +146,17 @@ button.checkout:hover{
     cursor: pointer;
 }
 
-.quantityDecrement {
+.quantityDecrement, .quantityIncrement {
     position: absolute;
-    left: 0.3rem;
-    top: 0.2rem;
+    top: var(--v-space);
 }
 
-.quantityIncrement {
-    position: absolute;
-    right: 0.3rem;
-    top: 0.3rem;
+.quantityDecrement{
+    left: var(--h-space);
+}
+
+.quantityIncrement{
+    right: var(--h-space);
 }
 
 .middleSection{
@@ -188,7 +191,8 @@ h2.emptyCart > p > .faceEmoji{
     margin-left: 1rem;
 }
 
-@media screen and (width <= 600px) {
+/* Mobile */
+@media screen and (max-width: 600px) {
     .heading {
         font-size: x-large;
     }
@@ -232,13 +236,8 @@ h2.emptyCart > p > .faceEmoji{
     .quantityInputContainer {
         --size: 7rem;
         --size-inner: 6.5rem;
-        --container-width: calc(var(--size)*3);
-
-        height: var(--size);
-    }
-    .quantityDecrement {
-        height: calc(var(--size-inner) - 1px);
-        top: 0.3rem;
+        --h-space: calc(var(--size-inner) / 7);
+        --v-space: calc(var(--size) / 18);
     }
     .billing {
         align-items: center;
@@ -271,5 +270,43 @@ h2.emptyCart > p > .faceEmoji{
     }
     h2.emptyCart>p>.faceEmoji {
         top: 5.5rem;
+    }
+}
+
+/* Tablet */
+@media screen and (min-width: 600px) and (max-width: 900px){
+    .cart{
+        font-size: 13px;
+    }
+    .heading {
+        font-size: xx-large;
+    }
+    .tHeadings .thead{
+        font-size: 1.4rem;
+    }
+    .product .info .title {
+        font-size: 1.5rem;
+    }
+    .product .productImage {
+        --size: 10rem;
+        height: var(--size);
+        width: var(--size);
+    }
+    .quantityInputContainer {
+        --size: 4rem;
+        --size-inner: 3.5rem;
+        --h-space: calc(var(--size-inner) / 7);
+        --v-space: calc(var(--size) / 18);
+    }
+    .product .total{
+        font-size: 1.5rem;
+    }
+    .billing .subtotal {
+        font-size: large;
+    }
+    button.checkout {
+        height: 4rem;
+        width: 20rem;
+        font-size: 1.5rem;
     }
 }

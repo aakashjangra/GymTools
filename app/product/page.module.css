@@ -176,4 +176,7 @@
     .description {
         font-size: small;
     }
+    .features {
+        gap: var(--normal-spacing);
+    }
 }

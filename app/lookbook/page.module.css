@@ -41,10 +41,4 @@ section.summerInspiration {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(14, 1fr);
     }
-    .productsContainer{
-        padding: var(--current-page-padding-size) var(--padding-content);
-    }
-    .productsContainer .heading {
-        padding: 0;
-    }
 }

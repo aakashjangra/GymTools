@@ -75,7 +75,7 @@
         margin: 5rem 0;
     }    
     .product{
-        height: 35vh;
+        height: 50vw;
     }
     .product .productImages {
         height: 60%;
@@ -91,6 +91,12 @@
 /* Tablet */
 @media screen and (width > 600px) and (width <=900px) {
     .product .productImages {
-            height: 60%;
+            height: 65%;
         }
+}
+
+@media screen and (min-width: 600px) and (max-width: 800px) {
+    .products {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }

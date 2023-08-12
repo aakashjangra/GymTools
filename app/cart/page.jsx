@@ -40,33 +40,33 @@ function Cart() {
                   const itemTotal = item.quantity? item.quantity * item.data.salePrice: 0;
                    return (
                      <section className={styles.product}>
-                      <section className={styles.info}>
-                        <img src={item.data.imageUrls[0]} alt={item.data.title} className={styles.productImage}/>
-                        <div className={styles.titleAndPrice}>
-                          <h3 className={styles.title}>{item.data.title}</h3>
-                          <p className={styles.price}>₹{item.data.salePrice}</p>
-                        </div>
-                      </section>
-                      <div className={styles.middleSection}>
-                          {/* Quantity Selector */}
-                          <div className={styles.quantityInputContainer}>
-                                      <input className={styles.quantityInput} onChange={(event) => {
-                                          if(event.target.value && (event.target.value >= 1 && event.target.value < 99999))
-                                            setQuantity(item.id, parseInt(event.target.value))
-                                          else 
-                                            setQuantity(item.id, 1);
-                                        }} value={item.quantity} id='quantity' type='number'></input>
-                                    <button className={styles.quantityIncrement} onClick={() => setQuantity(item.id, item.quantity+1)}>+</button>
-                                    <button className={styles.quantityDecrement} disabled={item.quantity == 1}  onClick={() => {
-                                      if(item.quantity == 1) return;
-                                      setQuantity(item.id, item.quantity-1)}}>-</button>
+                        <section className={styles.info}>
+                          <img src={item.data.imageUrls[0]} alt={item.data.title} className={styles.productImage}/>
+                          <div className={styles.titleAndPrice}>
+                            <h3 className={styles.title}>{item.data.title}</h3>
+                            <p className={styles.price}>₹{item.data.salePrice}</p>
                           </div>
-                          {/* Quantity Selector Ends Here*/}
-                          <button className={styles.itemDelete}>
-                            <Image src={'/trash.svg'} height={20} width={15} className={styles.itemDelete}  onClick={() => dispatch(removeFromCart({id: item.id}))}></Image>
-                          </button>
-                      </div>
-                      <section className={styles.total}>₹{itemTotal}</section>
+                        </section>
+                        <div className={styles.middleSection}>
+                            {/* Quantity Selector */}
+                            <div className={styles.quantityInputContainer}>
+                                        <input className={styles.quantityInput} onChange={(event) => {
+                                            if(event.target.value && (event.target.value >= 1 && event.target.value < 99999))
+                                              setQuantity(item.id, parseInt(event.target.value))
+                                            else 
+                                              setQuantity(item.id, 1);
+                                          }} value={item.quantity} id='quantity' type='number'></input>
+                                      <button className={styles.quantityIncrement} onClick={() => setQuantity(item.id, item.quantity+1)}>+</button>
+                                      <button className={styles.quantityDecrement} disabled={item.quantity == 1}  onClick={() => {
+                                        if(item.quantity == 1) return;
+                                        setQuantity(item.id, item.quantity-1)}}>-</button>
+                            </div>
+                            {/* Quantity Selector Ends Here*/}
+                            <button className={styles.itemDelete}>
+                              <Image src={'/trash.svg'} height={20} width={15} className={styles.itemDelete}  onClick={() => dispatch(removeFromCart({id: item.id}))}></Image>
+                            </button>
+                        </div>
+                        <section className={styles.total}>₹{itemTotal}</section>
                     </section>
                   )
                 })

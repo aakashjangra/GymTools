@@ -206,6 +206,7 @@ body {
   height: 0.8rem;
   width: 0.8rem;
   font-size: 0.5rem;
+    font-weight:bold;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -381,7 +382,7 @@ body {
 }
 
 /* tablets */
-@media screen and (width > 600px) and (width <=900px) {
+@media screen and (min-width: 600px) and (max-width: 900px) {
   html {
     font-size: 10px;
     --padding-content: 5vw;
@@ -402,7 +403,8 @@ body {
     gap: 2rem;
   }
 
-  .header .link-with-svg {
+  .header .header-left .link-with-svg, .header .header-right .link-with-svg {
+    font-size: small;
     width: min-content;
     gap: 2px;
   }
@@ -411,6 +413,12 @@ body {
       --searchBox-height: 6rem;
       --searchBox-input-width: 60vw;
     }
+        .header .cart .cartItemsCount {
+          --size: 1.3rem;
+          height: var(--size);
+          width: var(--size);
+          font-size: 0.8rem;
+        }
 }
 
 /* Desktop */
